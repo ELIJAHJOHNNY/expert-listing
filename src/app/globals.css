@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #173b35;
+  --font-display: Georgia, "Times New Roman", serif;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  background: #f4f1e9;
+}
+body {
+  margin: 0;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+button,
+input {
+  font: inherit;
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.search-results {
+  scrollbar-width: none;
+}
+
+.search-results::-webkit-scrollbar {
+  width: 0;
+}
+
+.search-results:hover,
+.search-results:focus-within {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(16 91 72 / 45%) transparent;
+}
+
+.search-results:hover::-webkit-scrollbar,
+.search-results:focus-within::-webkit-scrollbar {
+  width: 5px;
+}
+
+.search-results::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: transparent;
+}
+
+.search-results:hover::-webkit-scrollbar-thumb,
+.search-results:focus-within::-webkit-scrollbar-thumb {
+  background: rgb(16 91 72 / 45%);
+}
+
+/* A selected location adds meaningful context below the search. On compact desktop
+   viewports, let the document grow instead of forcing that content under the footer. */
+@media (min-width: 1024px) and (max-height: 760px) {
+  .page-shell {
+    height: auto;
+    overflow: visible;
+  }
+}
